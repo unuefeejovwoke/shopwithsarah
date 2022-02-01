@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+  <title>Shop With Sarah</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- owl carousel css --> 
+  <link rel="stylesheet" href="{% static 'styles/owl.carousel.min.css' %}"> 
+  <!-- font awesome icons --> 
+  <link rel="stylesheet" href="{% static 'styles/font-awesome.css' %}"> 
+  <!-- bootstrap css --> 
+  <link rel="stylesheet" href="{% static 'styles/bootstrap.min.css' %}"> 
+  <!-- main css -->
+  <link rel="stylesheet" href="{% static 'styles/site.css' %}">
+</head>
+<body>
+
+ <!-- nav bar start-->
+ <nav class="navbar navbar-expand-md fixed-top">
+    <div class="container">
+  <!-- Brand -->
+        <a class="navbar-brand" href="{% url 'frontpage' %}">ShopWithSarah</a>
+
+  <!-- Toggler/collapsible Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+  <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'frontpage' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+</nav>
+ <!-- nav bar end-->
+ <!--- home section-->
+{% block body %}
+<section class="home d-flex align-items-center">
+  <div class="effect-wrap">
+    <i class="fas fa-plus effect effect-1"></i>
+    <i class="fas fa-plus effect effect-2"></i>
+    <i class="fas fa-circle-notch effect effect-3"></i>
+  </div>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-7">
+          <div class="home-text">
+              <h1>Best Online Shop For Your Business And Crypto-currencies As Means Of Payment</h1>
+              <p>Sarah is the joint between e-commerce and blockchain tech.
+                 It's a program that enables an e-commerce shop user
+                to purchase an item or product using a Blockchain wallet.</p>
+            {% if request.user.is_authenticated %}
+              <div class="home-btn">
+                <a href="{% url 'shop_admin' %}" class="btn btn-1">Shop Admin</a>
+                <button type="button" class="btn btn-1 video-play-btn">
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+            {% else %}
+              <div class="home-btn">
+                <a href="{% url 'own_shop' %}" class="btn btn-1">Own A Shop</a>
+                <button type="button" class="btn btn-1 video-play-btn">
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="col-md-5 text-center">
+          <div class="home-img">
+            <div class="circle"></div>
+            <img src="{% static 'img/saraah.jpg' %}" alt="shop with sarah">
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- home section end-->
+
+<!--video popup start-->
+<div class="video-popup">
+  <div class="video-popup-inner">
+    <i class="fas fa-times video-popup-close"></i>
+    <div class="iframe-box">
+      <iframe id="player-1" src="{% static 'test.mp4' %}" frameborder="0"
+      allow="accelerometer; autoplay; 
+      clipboard-write; encrypted-media; gyroscope;
+      picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+<!--video popup end-->
+{% endblock %}
+
+<!-- jquery js -->
+<script src="{% static 'scripts/jquery.min.js' %}"></script>
+<!-- popper js -->
+<script src="{% static 'scripts/popper.min.js' %}"></script>
+<!-- bootstrap js -->
+<script src="{% static 'scripts/bootstrap.min.js' %}"></script>
+<!-- owl carousel js -->
+<script src="{% static 'scripts/owl.carousel.min.js' %}"></script>
+<!-- ScrollIt js -->
+<script src="{% static 'scripts/scrollIt.min.js' %}"></script>
+
+<script src="{% static 'scripts/main.js' %}"></script>
+</body>
+</html>

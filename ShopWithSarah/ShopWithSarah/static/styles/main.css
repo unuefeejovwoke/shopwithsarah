@@ -1,0 +1,28 @@
+/**
+* Nav
+*/
+
+
+
+.navbar{
+    background-color: rgb(255, 255, 255);
+}
+
+/**
+* Footer 
+*/
+
+.footer a {
+    margin-bottom: 15px;
+    display: inline-block;
+    color: rgb(252, 145, 5);
+}
+
+/**
+* Bulma overrides
+*/
+
+.input, .button {
+    border-radius: 0;
+}
+
